@@ -13,12 +13,42 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+       
+       
+        
+        guard let WinS = (scene as? UIWindowScene) else { return }
+        window = UIWindow(frame: WinS.coordinateSpace.bounds)
+        window?.windowScene = WinS
+        window?.rootViewController = createtabbar()
+        window?.makeKeyAndVisible()
     }
 
+    //MARK:- Create MainScene
+    func createsearchNavig() -> UINavigationController{
+        let firstVc = AllMovieCollectionViewController()
+        firstVc.title = "Popular Movies"
+        firstVc.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 0)
+        return UINavigationController(rootViewController: firstVc)
+    }
+    
+    //MARK:- Create secondScene
+    func createfavirothNavig() -> UINavigationController{
+        let secondvc = VavioritMOvieViewController()
+        secondvc.title = "favirot Movies"
+        secondvc.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        return UINavigationController(rootViewController: secondvc)
+    }
+    
+ //MARK:- CreateTabBarFunction
+    func createtabbar() -> UITabBarController{
+        let tabbar = UITabBarController()
+        UITabBar.appearance().tintColor = .systemGreen
+        tabbar.viewControllers = [createsearchNavig(),createfavirothNavig()]
+        return tabbar
+    }
+    
+    //MARK:-
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
