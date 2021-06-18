@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2391EF83267C14DB005D3E09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2391EF82267C14DB005D3E09 /* AppDelegate.swift */; };
 		2391EF85267C14DB005D3E09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2391EF84267C14DB005D3E09 /* SceneDelegate.swift */; };
-		2391EF87267C14DB005D3E09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2391EF86267C14DB005D3E09 /* ViewController.swift */; };
 		2391EF8D267C14DB005D3E09 /* MovieDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2391EF8B267C14DB005D3E09 /* MovieDB.xcdatamodeld */; };
 		2391EF8F267C14DC005D3E09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2391EF8E267C14DC005D3E09 /* Assets.xcassets */; };
 		2391EF92267C14DC005D3E09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2391EF90267C14DC005D3E09 /* LaunchScreen.storyboard */; };
@@ -18,6 +17,8 @@
 		2391EFB7267C49E1005D3E09 /* AllMovieCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2391EFB6267C49E1005D3E09 /* AllMovieCollectionViewController.swift */; };
 		2391EFB9267C4C0F005D3E09 /* DetsilsMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2391EFB8267C4C0F005D3E09 /* DetsilsMoviesViewController.swift */; };
 		2391EFBB267C4D4C005D3E09 /* VavioritMOvieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2391EFBA267C4D4C005D3E09 /* VavioritMOvieViewController.swift */; };
+		2391EFBD267C5361005D3E09 /* PMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2391EFBC267C5361005D3E09 /* PMButton.swift */; };
+		2391EFBF267C5739005D3E09 /* PMtextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2391EFBE267C5739005D3E09 /* PMtextfield.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +42,6 @@
 		2391EF7F267C14DB005D3E09 /* MovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2391EF82267C14DB005D3E09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2391EF84267C14DB005D3E09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2391EF86267C14DB005D3E09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2391EF8C267C14DB005D3E09 /* MovieDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieDB.xcdatamodel; sourceTree = "<group>"; };
 		2391EF8E267C14DC005D3E09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2391EF91267C14DC005D3E09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,6 +56,8 @@
 		2391EFB6267C49E1005D3E09 /* AllMovieCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMovieCollectionViewController.swift; sourceTree = "<group>"; };
 		2391EFB8267C4C0F005D3E09 /* DetsilsMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetsilsMoviesViewController.swift; sourceTree = "<group>"; };
 		2391EFBA267C4D4C005D3E09 /* VavioritMOvieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VavioritMOvieViewController.swift; sourceTree = "<group>"; };
+		2391EFBC267C5361005D3E09 /* PMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMButton.swift; sourceTree = "<group>"; };
+		2391EFBE267C5739005D3E09 /* PMtextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMtextfield.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +111,8 @@
 				2391EFB5267C274C005D3E09 /* urlList.playground */,
 				2391EF82267C14DB005D3E09 /* AppDelegate.swift */,
 				2391EF84267C14DB005D3E09 /* SceneDelegate.swift */,
-				2391EF86267C14DB005D3E09 /* ViewController.swift */,
+				2391EFBC267C5361005D3E09 /* PMButton.swift */,
+				2391EFBE267C5739005D3E09 /* PMtextfield.swift */,
 				2391EFB6267C49E1005D3E09 /* AllMovieCollectionViewController.swift */,
 				2391EFBA267C4D4C005D3E09 /* VavioritMOvieViewController.swift */,
 				2391EFB8267C4C0F005D3E09 /* DetsilsMoviesViewController.swift */,
@@ -269,7 +272,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2391EFB7267C49E1005D3E09 /* AllMovieCollectionViewController.swift in Sources */,
-				2391EF87267C14DB005D3E09 /* ViewController.swift in Sources */,
+				2391EFBF267C5739005D3E09 /* PMtextfield.swift in Sources */,
+				2391EFBD267C5361005D3E09 /* PMButton.swift in Sources */,
 				2391EFB9267C4C0F005D3E09 /* DetsilsMoviesViewController.swift in Sources */,
 				2391EFBB267C4D4C005D3E09 /* VavioritMOvieViewController.swift in Sources */,
 				2391EF83267C14DB005D3E09 /* AppDelegate.swift in Sources */,
