@@ -19,14 +19,19 @@ class AllMovieCollectionViewController: UIViewController ,UICollectionViewDelega
     var listMovies:[movieDetails] = []
     var page = 1
     var hasMoreMovie = true
+    var filterMovies :[movieDetails] = []
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
         confgureViewCOntrller()
+        configureSearchController()
         configureCollectionView()
         getMovies(page: page)
         configrueDatasource()
-       
+        
         
     }
     
@@ -44,7 +49,7 @@ class AllMovieCollectionViewController: UIViewController ,UICollectionViewDelega
             case .success(let movies) :
                 if movies.count < 20 {self.hasMoreMovie = false}
                 self.listMovies.append(contentsOf: movies)
-                self.updatedata()
+                self.updatedata(on: self.listMovies)
                 print("movieList.count = \(movies.count)")
                
             case .failure(let error) :
@@ -65,7 +70,7 @@ class AllMovieCollectionViewController: UIViewController ,UICollectionViewDelega
         collectionView.backgroundColor = .label
         collectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.reuseID)
         collectionView.delegate = self
-        
+    
     }
    
     
@@ -96,10 +101,10 @@ class AllMovieCollectionViewController: UIViewController ,UICollectionViewDelega
         })
     }
     
-    func updatedata(){
+    func updatedata(on movies:[movieDetails]){
         var snapshot  = NSDiffableDataSourceSnapshot<Section,movieDetails>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(listMovies)
+        snapshot.appendItems(movies)
         DispatchQueue.main.async {
             self.datasource.apply(snapshot, animatingDifferences: true)
         }
@@ -124,6 +129,35 @@ class AllMovieCollectionViewController: UIViewController ,UICollectionViewDelega
         print("contentHight = \(contentHight)")
         print("height = \(height)")
     }
+    
+    
+    func configureSearchController(){
+        let searchController  = UISearchController()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "search for a movi"
+        navigationItem.searchController = searchController
+    }
+    
+//    func updateSearchResults(for searchController: UISearchController) {
+//        guard let filter = searchController.searchBar.text, !filter.isEmpty else {return}
+//        filterMovies = listMovies.filter{$0.title.lowercased().contains(filter.lowercased())}
+//        updatedata(on: filterMovies)
+//
+//    }
+    
+     
 
 }
 
+extension AllMovieCollectionViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else {return}
+        filterMovies =       listMovies.filter{$0.title.lowercased().contains(filter.lowercased())}
+        print("this filter is :\(filterMovies)")
+                updatedata(on: filterMovies)
+    }
+    
+   
+    
+    
+}
