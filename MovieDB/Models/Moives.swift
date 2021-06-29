@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Movies: Codable {
+struct Movies: Codable ,Hashable{
     let page:Int
     let results : [movieDetails]
     let totalPages:Int
@@ -15,8 +15,10 @@ struct Movies: Codable {
 }
 
 
-struct movieDetails: Codable {
+struct movieDetails: Codable ,Hashable{
     let id: Int
+    let title:String
+    let posterPath:String
     
 }
 

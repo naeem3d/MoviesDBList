@@ -1,5 +1,5 @@
 import UIKit
-
+// imageURl =  https://api.themoviedb.org/3/configuration?api_key=0a24180041f6b1f51f7bc4d911edf177/+ImageUrl
 //  Created by naeem alabboodi on 6/17/21.
 //  API Key (v3 auth) = 0a24180041f6b1f51f7bc4d911edf177
 // Example API Request =  https://api.themoviedb.org/3/movie/550?api_key=0a24180041f6b1f51f7bc4d911edf177
