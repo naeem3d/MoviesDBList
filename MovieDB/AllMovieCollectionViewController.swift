@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AllMovieCollectionViewController: UIViewController ,UICollectionViewDelegate {
+class AllMovieCollectionViewController: UIViewController ,UICollectionViewDelegate, UISearchBarDelegate {
     
     
     enum Section{
@@ -76,16 +76,16 @@ class AllMovieCollectionViewController: UIViewController ,UICollectionViewDelega
     
     func createTwoColumnFlowLayout() -> UICollectionViewLayout{
         let width = view.bounds.width
-        let padding : CGFloat = 10
-        let minimumSpace : CGFloat = 20
+        let padding : CGFloat = 4
+        let minimumSpace : CGFloat = 6
         let availableWidth = width - (padding * 2) - (minimumSpace * 2)
         
         let itemWidth = availableWidth / 2
         
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        flowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         
-        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 50)
+        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)
         
         return flowLayout
     }
@@ -117,6 +117,7 @@ class AllMovieCollectionViewController: UIViewController ,UICollectionViewDelega
         let contentHight = scrollView.contentSize.height
         let height = scrollView.frame.size.height
         
+     
         
         
         if offsetY > (contentHight - height) {
@@ -134,16 +135,12 @@ class AllMovieCollectionViewController: UIViewController ,UICollectionViewDelega
     func configureSearchController(){
         let searchController  = UISearchController()
         searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "search for a movi"
         navigationItem.searchController = searchController
     }
     
-//    func updateSearchResults(for searchController: UISearchController) {
-//        guard let filter = searchController.searchBar.text, !filter.isEmpty else {return}
-//        filterMovies = listMovies.filter{$0.title.lowercased().contains(filter.lowercased())}
-//        updatedata(on: filterMovies)
-//
-//    }
+
     
      
 
@@ -153,10 +150,13 @@ extension AllMovieCollectionViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text, !filter.isEmpty else {return}
         filterMovies =       listMovies.filter{$0.title.lowercased().contains(filter.lowercased())}
-        print("this filter is :\(filterMovies)")
-                updatedata(on: filterMovies)
+        updatedata(on: filterMovies)
+        
+        
     }
-    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+       updatedata(on: listMovies)
+    }
    
     
     
